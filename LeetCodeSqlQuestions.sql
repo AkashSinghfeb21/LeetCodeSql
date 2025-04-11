@@ -1,4 +1,4 @@
-//first Question
+--first Question
 Write a solution to find the ids of products that are both low fat and recyclable.
 
 Return the result table in any order.
@@ -23,11 +23,11 @@ Output:
 +-------------+
 Explanation: Only products 1 and 3 are both low fat and recyclable.
 
-//Solution
+--Solution
 select product_id from Products
 where low_fats = 'Y' and recyclable = 'Y';
 
-//Second Question
+--Second Question
 Find the names of the customer that are not referred by the customer with id = 2.
 
 Return the result table in any order.
@@ -58,11 +58,11 @@ Output:
 | Zack |
 +------+
 
-//Solution
+--Solution
 select name from Customer 
 where referee_id is null or not referee_id = 2;
 
-//Third Question
+--Third Question
 Write a solution to find the name, population, and area of the big countries.
 
 Return the result table in any order.
@@ -165,7 +165,7 @@ Tweet 2 has length = 33. It is an invalid tweet.
 select tweet_id from Tweets
 where length(content) > 15;
 
-//Sixth Question
+--Sixth Question
 Write a solution to show the unique ID of each user, If a user does not have a unique ID replace just show null.
 
 Return the result table in any order.
@@ -211,7 +211,7 @@ The unique ID of Meir is 2.
 The unique ID of Winston is 3.
 The unique ID of Jonathan is 1.
 
-//Solution
+--Solution
 select EmployeeUNI.unique_id,Employees.name 
 from Employees
 left join EmployeeUNI on Employees.id = EmployeeUNI.id;
