@@ -41,3 +41,79 @@ revoke select on aloo.test from root;
 -- select
 
 select * from test;
+
+-- sql joins left right inner full self
+
+create table Employees
+(
+id int primary key,
+name varchar(200),
+dept_id int,
+foreign key(dept_id) references Department(dept_id)
+);
+
+create table Department
+(
+dept_id int primary key,
+dept_name varchar(255)
+);
+
+insert into Employees values
+(
+1,"Alice",10
+),
+(2,"Bob",20),
+(3,"Charlie",30);
+
+insert into Department values
+(
+10,"HR"
+),
+(20,"IT"),
+(30,"Marketing");
+
+update Department 
+set dept_id = 40 where dept_name ="Sales";
+
+select * from Department;
+
+insert into department values
+(40,"Sales");
+
+select * from Employees;
+
+-- left join
+select a.id,a.name,b.dept_id,b.dept_name 
+from Employees as a
+left join Department as b
+on a.dept_id = b.dept_id; 
+
+-- right join
+select a.id,a.name,b.dept_id,b.dept_name
+from Employees as a 
+right join Department as b
+on a.dept_id = b.dept_id;
+
+-- full outer join
+
+select *
+from Employees as a
+left join Department as b
+on a.dept_id = b.dept_id
+UNION
+select *
+from Employees as a
+right join Department as b
+on a.dept_id = b.dept_id;
+
+
+
+insert into Employees values
+(4,"John",null);
+
+
+-- inner join 
+select a.id,a.name,b.dept_id,b.dept_name
+from Employees as a
+inner join Department as b
+on a.dept_id = b.dept_id;
